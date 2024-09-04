@@ -1,22 +1,22 @@
 import { DependencyContainer } from "tsyringe";
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
-import type { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService";
-import { HttpResponseUtil } from "@spt-aki/utils/HttpResponseUtil";
-import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
-import { InRaidHelper } from "@spt-aki/helpers/InRaidHelper";
-import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
-import { IGetRaidConfigurationRequestData } from "@spt-aki/models/eft/match/IGetRaidConfigurationRequestData";
+import { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
+import type { StaticRouterModService } from "@spt/services/mod/staticRouter/StaticRouterModService";
+import { HttpResponseUtil } from "@spt/utils/HttpResponseUtil";
+import { IPmcData } from "@spt/models/eft/common/IPmcData";
+import { InRaidHelper } from "@spt/helpers/InRaidHelper";
+import { ProfileHelper } from "@spt/helpers/ProfileHelper";
+import { IGetRaidConfigurationRequestData } from "@spt/models/eft/match/IGetRaidConfigurationRequestData";
 import { Utils } from "./utils"
-import { ApplicationContext } from "@spt-aki/context/ApplicationContext";
-import { ContextVariableType } from "@spt-aki/context/ContextVariableType";
+import { ApplicationContext } from "@spt/context/ApplicationContext";
+import { ContextVariableType } from "@spt/context/ContextVariableType";
 
 const raidInfo = require("../db/savedInfo.json");
 const modConfig = require("../db/config.json");
 
-class Mod implements IPreAkiLoadMod {
+class Mod implements IPreSptLoadMod {
 
-    preAkiLoad(container: DependencyContainer): void {
+    preSptLoad(container: DependencyContainer): void {
         const logger = container.resolve<ILogger>("WinstonLogger");
         const staticRouterModService = container.resolve<StaticRouterModService>("StaticRouterModService");
         const HttpResponse = container.resolve<HttpResponseUtil>("HttpResponseUtil");
