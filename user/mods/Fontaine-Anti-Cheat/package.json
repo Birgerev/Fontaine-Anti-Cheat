@@ -1,6 +1,6 @@
 {
     "name": "Fontaine's Anti-Cheat",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "main": "src/mod.js",
     "license": "CC BY-NC-SA",
     "author": "Fontaine",
